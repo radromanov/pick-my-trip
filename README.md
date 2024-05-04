@@ -40,7 +40,7 @@ PMT will include a list of sights to see, and businesses will be able to promote
 ### Todos
 
     - [x] Hosting (Vercel)
-    - [ ] Setup Database (Vercel Postgres)
+    - [x] Setup Database (Vercel Postgres)
     - [ ] Setup Cache (Redis/Upstash?)
     - [ ] Authentication (Clerk/Kinde)
     - [ ] Error management (Sentry)
