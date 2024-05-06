@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { IDsTable, NewID } from "./schema";
+import { ids, NewID } from "./schema";
 import { db } from "./drizzle";
 
 const newIDs: NewID[] = [
@@ -22,7 +22,7 @@ export async function seed() {
 
   console.log("Created 'ids' table.");
 
-  const insertedIDs = await db.insert(IDsTable).values(newIDs).returning();
+  const insertedIDs = await db.insert(ids).values(newIDs).returning();
 
   console.log(`Seeded ${newIDs.length} ids.`);
 

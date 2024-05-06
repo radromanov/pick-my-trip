@@ -8,7 +8,7 @@ PMT will choose your next trip location based on common filters such as radius f
 
 ## II. Authentication
 
-PMT will use authorize users via their Google profile. In-home auth via email will also be included.
+PMT will use authorize users via their Google profile. In-house auth via email will also be included.
 
 ## III. User-specific actions/services
 
@@ -41,8 +41,8 @@ PMT will include a list of sights to see, and businesses will be able to promote
 
     - [x] Hosting (Vercel)
     - [x] Setup Database (Vercel Postgres)
-    - [ ] Setup Cache (Redis/Upstash?)
-    - [ ] Authentication (Clerk/Kinde)
+    - [x] Setup Cache (Redis/Upstash?)
+    - [ ] Authentication (Clerk/Kinde & In-House)
     - [ ] Error management (Sentry)
     - [ ] Analytics (Posthog)
     - [ ] Location picker (using Places API?)
