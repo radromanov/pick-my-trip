@@ -32,3 +32,22 @@ export function generateID(
 
   return id;
 }
+
+export function setAuthMessage(path: string) {
+  switch (path) {
+    case "/auth/sign-in":
+      return {
+        text: "No account yet?",
+        link: "Create account",
+        to: "/auth/sign-up",
+        linkIsColored: true,
+      };
+    case "/auth/sign-up":
+      return {
+        text: "Already have an account?",
+        link: "Sign in",
+        to: "/auth/sign-in",
+        linkIsColored: true,
+      };
+  }
+}

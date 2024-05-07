@@ -1,4 +1,5 @@
-export const NAV_HEIGHT = "40px";
+export const HEADER_HEIGHT = 40;
+export const FOOTER_HEIGHT = 40;
 
 export const ID_CHARS =
   "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789-_~";
