@@ -1,10 +1,4 @@
-import { generateID } from "@/lib/helpers";
-
 export default function Home() {
-  const id = generateID();
-
-  console.log(id);
-
   return (
     <main className="flex justify-center items-center">
       <h1 className="text-5xl">

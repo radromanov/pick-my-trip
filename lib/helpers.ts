@@ -1,12 +1,5 @@
 import { GENERATE_ID_OPTS } from "./constants";
 
-function pickRandomCharacter(chars: string) {
-  const randomIndex = Math.floor(Math.random() * chars.length);
-  const randomChar = chars[randomIndex];
-
-  return randomChar;
-}
-
 /**
  * Creates each user's ID.
  * @param length Max length of each ID. Defaults to `ID_MAX_LEN`
@@ -19,11 +12,18 @@ export function generateID(
   let id = "";
   let lastCharacter = "";
 
+  function pickRandomCharacter(charSet: string = chars) {
+    const randomIndex = Math.floor(Math.random() * charSet.length);
+    const randomChar = charSet[randomIndex];
+
+    return randomChar;
+  }
+
   for (let i = 0; i < length; i++) {
-    let randomChar = pickRandomCharacter(chars);
+    let randomChar = pickRandomCharacter();
 
     while (randomChar === lastCharacter) {
-      randomChar = pickRandomCharacter(chars);
+      randomChar = pickRandomCharacter();
     }
 
     lastCharacter = randomChar;
