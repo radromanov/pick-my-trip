@@ -1,30 +1,49 @@
+import "@next/env";
 import { sql } from "@vercel/postgres";
-import { ids, NewID } from "./schema";
+import { countries } from "./schema";
 import { db } from "./drizzle";
-
-const newIDs: NewID[] = [
-  {
-    id: "12345",
-  },
-];
+import { Country } from "./types";
 
 export async function seed() {
   console.log("Seeding database...");
 
-  const createTable = await sql.query(`
-        CREATE TABLE IF NOT EXISTS ids (
-            id VARCHAR(16) PRIMARY KEY NOT NULL,
-            taken BOOLEAN DEFAULT TRUE NOT NULL,
-            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP WITH TIMEZONE DEFAULT CURRENT_TIMESTAMP 
-        );
-    `);
+  const countriesResp = await fetch(
+    "https://restcountries.com/v3.1/all?fields=name,flag,latlng"
+  );
+  const allCountries = await countriesResp.json();
 
-  console.log("Created 'ids' table.");
+  // const createTable = await sql.query(`
+  //       CREATE TABLE IF NOT EXISTS countries (
+  //           id SERIAL PRIMARY KEY NOT NULL,
+  //           name VARCHAR(255) UNIQUE NOT NULL,
+  //           flag VARCHAR(255) UNIQUE NOT NULL,
+  //           lat INTEGER NOT NULL,
+  //           lng INTEGER NOT NULL,
+  //           created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  //           updated_at TIMESTAMP WITH TIMEZONE DEFAULT CURRENT_TIMESTAMP
+  //       );
+  //   `);
 
-  const insertedIDs = await db.insert(ids).values(newIDs).returning();
+  console.log("Created 'countries' table.");
 
-  console.log(`Seeded ${newIDs.length} ids.`);
+  const formattedCountries = allCountries.map((country: any) => {
+    const { name, flag, latlng } = country;
+    const [lat, lng] = latlng;
 
-  return { createTable, insertedIDs };
+    return {
+      name: name.common,
+      flag,
+      lat,
+      lng,
+    };
+  });
+
+  const inserted = await db
+    .insert(countries)
+    .values(formattedCountries)
+    .returning();
+
+  console.log(`Seeded ${allCountries.length} ids.`);
+
+  return { inserted };
 }

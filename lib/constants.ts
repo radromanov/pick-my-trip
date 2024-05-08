@@ -13,3 +13,14 @@ export const USERNAME_MIN_LEN = 3;
 export const USERNAME_MAX_LEN = 32;
 export const PASSWORD_MIN_LEN = 8;
 export const PASSWORD_MAX_LEN = 32;
+
+export const ErrorTypes = {
+  "Bad Request": 400,
+  Unauthorized: 401,
+  Forbidden: 403,
+  "Not Found": 404,
+  "Method Not Allowed": 405,
+  Conflict: 409,
+  "Unprocessable Entity": 422,
+  "Internal Server Error": 500,
+} as const;
