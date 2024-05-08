@@ -71,6 +71,27 @@ export const countries = pgTable("countries", {
 
 export const countriesRelations = relations(countries, ({ many }) => ({
   users: many(users),
+  cities: many(cities),
+}));
+
+export const cities = pgTable("cities", {
+  id: serial("id").primaryKey().notNull(),
+  name: varchar("name").notNull(),
+  country: varchar("country")
+    .notNull()
+    .references(() => countries.name),
+  countryId: serial("country_id")
+    .notNull()
+    .references(() => countries.id),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const citiesRelations = relations(cities, ({ one }) => ({
+  country: one(countries, {
+    fields: [cities.country, cities.countryId],
+    references: [countries.name, countries.id],
+  }),
 }));
 
 export type ID = InferSelectModel<typeof ids>;
@@ -79,3 +100,5 @@ export type User = Omit<InferSelectModel<typeof users>, "password">;
 export type NewUser = InferInsertModel<typeof users>;
 export type Country = InferSelectModel<typeof countries>;
 export type NewCountry = InferInsertModel<typeof countries>;
+export type City = InferSelectModel<typeof cities>;
+export type NewCity = InferInsertModel<typeof cities>;
