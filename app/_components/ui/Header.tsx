@@ -1,27 +1,33 @@
+"use client";
+
 import { HEADER_HEIGHT } from "@/lib/constants";
-import React from "react";
+import React, { useState } from "react";
 import CustomLink from "./CustomLink";
 import Link from "next/link";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 import Image from "next/image";
+import HeaderItem from "../HeaderItem";
 
 interface Props {
   user: KindeUser | null;
 }
 
 const Header = ({ user }: Props) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <header>
       <nav
-        className="flex w-full justify-between items-center px-3"
+        className="flex w-full justify-between items-center px-3 font-medium"
         style={{ height: HEADER_HEIGHT }}
       >
         <div className="flex items-center h-full">
           <CustomLink text="PMT Logo" to="/" />
         </div>
         <div className="flex items-center h-full gap-4">
-          <CustomLink text="Home" to="/" />
-          <CustomLink text="About" to="/" />
+          <HeaderItem text="Home" href="/" />
+
+          <HeaderItem text="About" href="/" />
           {user ? (
             <Image
               className="rounded-full cursor-pointer"
@@ -32,12 +38,8 @@ const Header = ({ user }: Props) => {
             />
           ) : (
             <>
-              <button>
-                <Link href={"/auth/sign-in"}>Sign in</Link>
-              </button>
-              <button>
-                <Link href={"/auth/sign-up"}>Create account</Link>
-              </button>
+              <HeaderItem text="Sign in" href="/auth/sign-in" />
+              <HeaderItem text="Sign up" href="/auth/sign-un" />
             </>
           )}
         </div>

@@ -1,7 +1,5 @@
-import CountrySelector from "@/app/_components/CountrySelector";
 import OAuthLink from "@/app/_components/OAuthLink";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
-import React from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const SignUpPage = async () => {
@@ -15,19 +13,9 @@ const SignUpPage = async () => {
         <input name="lastName" id="lastName" placeholder="Doe" />
       </label>
 
-      <label htmlFor="username">
-        <input name="username" id="username" placeholder="john.doe" />
-      </label>
-
       <label htmlFor="email">
         <input name="email" id="email" placeholder="john.doe@email.com" />
       </label>
-
-      <CountrySelector />
-
-      <select name="city" id="city" className="w-full">
-        <option>Plovdiv</option>
-      </select>
 
       <button className="bg-violet-500 w-full">Continue</button>
 
