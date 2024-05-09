@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
@@ -14,11 +12,10 @@ const SignInPage = () => {
         </label>
 
         <button className="bg-violet-500 w-full">Continue</button>
-
         <DividerWithText text="OR" />
       </form>
 
-      <div className="flex flex-col w-full gap-2">
+      <form className="flex flex-col w-full gap-2">
         <OAuthLink
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GOOGLE!}
           icon={<FaGoogle />}
@@ -30,7 +27,7 @@ const SignInPage = () => {
           icon={<FaGithub />}
           text="Github"
         />
-      </div>
+      </form>
     </>
   );
 };

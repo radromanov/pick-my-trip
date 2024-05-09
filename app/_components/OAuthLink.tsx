@@ -12,6 +12,7 @@ interface Props {
 const OAuthLink = ({ icon, text, connection_id }: Props) => {
   return (
     <LoginLink
+      postLoginRedirectURL="/"
       className="flex items-center justify-center gap-2"
       authUrlParams={{ connection_id }}
     >
