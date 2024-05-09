@@ -28,12 +28,12 @@ const SignUpPage = async () => {
         <OAuthLink
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GOOGLE!}
           icon={<FaGoogle />}
-          text="Google"
+          text="Sign up with Google"
         />
         <OAuthLink
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GITHUB!}
           icon={<FaGithub />}
-          text="Github"
+          text="Sign up with Github"
         />
       </div>
     </form>

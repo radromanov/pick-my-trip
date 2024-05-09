@@ -8,15 +8,16 @@ interface Props {
   icon: React.ReactNode;
   text: string;
   connection_id: string;
+  login_hint?: string;
 }
 
-const OAuthLink = ({ icon, text, connection_id }: Props) => {
+const OAuthLink = ({ icon, text, connection_id, login_hint }: Props) => {
   return (
-    <Button variant="secondary" className="font-normal">
+    <Button variant="secondary" width="full" className="font-normal">
       <LoginLink
         postLoginRedirectURL="/"
         className="flex items-center justify-center gap-2"
-        authUrlParams={{ connection_id }}
+        authUrlParams={{ connection_id, login_hint: login_hint || "" }}
       >
         {icon}
         {text}

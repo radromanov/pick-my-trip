@@ -1,20 +1,32 @@
-import React from "react";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+"use client";
+import React, { useState } from "react";
+import { FaEnvelope, FaGithub, FaGoogle } from "react-icons/fa";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
 import OAuthLink from "@/app/_components/OAuthLink";
-import Button from "@/app/_components/ui/Button";
 
 const SignInPage = () => {
+  const [email, setEmail] = useState("");
+
   return (
     <>
       <form className="flex flex-col justify-center items-center gap-2">
         <label htmlFor="email">
-          <input name="email" id="email" placeholder="john.doe@email.com" />
+          <input
+            name="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="email@example.com"
+          />
         </label>
-
-        <Button variant="default" width={"full"}>
-          Continue
-        </Button>
+        <OAuthLink
+          text="Continue with Email"
+          connection_id={
+            process.env.NEXT_PUBLIC_KINDE_CONNECTION_EMAIL_PASSWORDLESS!
+          }
+          login_hint={email}
+          icon={<FaEnvelope />}
+        />
       </form>
 
       <DividerWithText text="OR" />
