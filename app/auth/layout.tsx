@@ -11,13 +11,13 @@ const AuthLayout = async ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <>
+    <div className="flex flex-col items-center gap-4">
       <h1 className="text-3xl">
         <Link href={"/home"}>Pick-My-Trip</Link>
       </h1>
 
       {children}
-    </>
+    </div>
   );
 };
 

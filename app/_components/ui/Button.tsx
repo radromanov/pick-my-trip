@@ -5,21 +5,24 @@ interface Props
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  text: string;
-  variant: "default" | "warning";
+  variant: "default" | "warning" | "secondary";
   width?: "full" | number;
   height?: "full" | number;
   className?: string;
+  children: React.ReactNode;
 }
 
 const applyVariant = (variant: Props["variant"]) => {
   let styles;
 
   switch (variant) {
+    case "secondary":
+      styles = `border border-neutral-300 shadow-md hover:bg-slate-300/25`;
+      break;
+
     case "warning":
       styles = `bg-red-500 text-white`;
       break;
-
     default:
       styles = `bg-black text-white hover:bg-neutral-700`;
       break;
@@ -29,18 +32,18 @@ const applyVariant = (variant: Props["variant"]) => {
 };
 
 const Button = ({
-  text,
   variant,
   width,
   height,
   className,
+  children,
   ...props
 }: Props) => {
   const style = applyVariant(variant);
 
   return (
     <button
-      className={`font-medium transition-colors ${style} ${
+      className={`font-medium transition-colors rounded-md ${style} ${
         className ? className : ""
       }`}
       style={{
@@ -49,7 +52,7 @@ const Button = ({
       }}
       {...props}
     >
-      {text}
+      {children}
     </button>
   );
 };

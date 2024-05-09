@@ -1,4 +1,5 @@
 import OAuthLink from "@/app/_components/OAuthLink";
+import Button from "@/app/_components/ui/Button";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
@@ -17,9 +18,9 @@ const SignUpPage = async () => {
         <input name="email" id="email" placeholder="john.doe@email.com" />
       </label>
 
-      <button className="bg-black text-white font-medium w-full">
+      <Button variant="default" width="full">
         Continue
-      </button>
+      </Button>
 
       <DividerWithText text="OR" />
 
@@ -29,7 +30,6 @@ const SignUpPage = async () => {
           icon={<FaGoogle />}
           text="Google"
         />
-
         <OAuthLink
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GITHUB!}
           icon={<FaGithub />}

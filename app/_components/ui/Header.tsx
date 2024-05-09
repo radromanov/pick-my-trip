@@ -1,9 +1,6 @@
-"use client";
-
 import { HEADER_HEIGHT } from "@/lib/constants";
-import React, { useState } from "react";
+import React from "react";
 import CustomLink from "./CustomLink";
-import Link from "next/link";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 import Image from "next/image";
 import HeaderItem from "../HeaderItem";
@@ -13,8 +10,6 @@ interface Props {
 }
 
 const Header = ({ user }: Props) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <header>
       <nav
@@ -29,17 +24,19 @@ const Header = ({ user }: Props) => {
 
           <HeaderItem text="About" href="/" />
           {user ? (
-            <Image
-              className="rounded-full cursor-pointer"
-              width={36}
-              height={36}
-              src={user.picture || ""}
-              alt="User profile picture"
-            />
+            <div className="flex items-center">
+              <Image
+                className="rounded-full cursor-pointer"
+                width={36}
+                height={36}
+                src={user.picture || ""}
+                alt="User profile picture"
+              />
+            </div>
           ) : (
             <>
               <HeaderItem text="Sign in" href="/auth/sign-in" />
-              <HeaderItem text="Sign up" href="/auth/sign-un" />
+              <HeaderItem text="Sign up" href="/auth/sign-up" />
             </>
           )}
         </ul>

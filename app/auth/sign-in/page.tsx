@@ -12,21 +12,24 @@ const SignInPage = () => {
           <input name="email" id="email" placeholder="john.doe@email.com" />
         </label>
 
-        <Button text="Continue" variant="default" width={"full"} />
-        <DividerWithText text="OR" />
+        <Button variant="default" width={"full"}>
+          Continue
+        </Button>
       </form>
+
+      <DividerWithText text="OR" />
 
       <form className="flex flex-col w-full gap-2">
         <OAuthLink
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GOOGLE!}
           icon={<FaGoogle />}
-          text="Google"
+          text="Sign in with Google"
         />
 
         <OAuthLink
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GITHUB!}
           icon={<FaGithub />}
-          text="Github"
+          text="Sign in with Github"
         />
       </form>
     </>
