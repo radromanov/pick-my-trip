@@ -24,7 +24,7 @@ const Header = ({ user }: Props) => {
         <div className="flex items-center h-full">
           <CustomLink text="PMT Logo" to="/" />
         </div>
-        <div className="flex items-center h-full gap-4">
+        <ul className="flex h-full gap-4">
           <HeaderItem text="Home" href="/" />
 
           <HeaderItem text="About" href="/" />
@@ -42,7 +42,7 @@ const Header = ({ user }: Props) => {
               <HeaderItem text="Sign up" href="/auth/sign-un" />
             </>
           )}
-        </div>
+        </ul>
       </nav>
     </header>
   );

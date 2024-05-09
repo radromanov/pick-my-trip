@@ -17,7 +17,9 @@ const SignUpPage = async () => {
         <input name="email" id="email" placeholder="john.doe@email.com" />
       </label>
 
-      <button className="bg-violet-500 w-full">Continue</button>
+      <button className="bg-black text-white font-medium w-full">
+        Continue
+      </button>
 
       <DividerWithText text="OR" />
 

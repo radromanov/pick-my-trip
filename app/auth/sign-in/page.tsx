@@ -2,6 +2,7 @@ import React from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
 import OAuthLink from "@/app/_components/OAuthLink";
+import Button from "@/app/_components/ui/Button";
 
 const SignInPage = () => {
   return (
@@ -11,7 +12,7 @@ const SignInPage = () => {
           <input name="email" id="email" placeholder="john.doe@email.com" />
         </label>
 
-        <button className="bg-violet-500 w-full">Continue</button>
+        <Button text="Continue" variant="default" width={"full"} />
         <DividerWithText text="OR" />
       </form>
 

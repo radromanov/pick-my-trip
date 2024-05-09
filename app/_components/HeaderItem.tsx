@@ -8,12 +8,12 @@ interface Props {
 
 const HeaderItem = ({ text, href }: Props) => {
   return (
-    <button>
-      <Link href={href} className="h-full group transition duration-300">
+    <li className="relative h-full group transition duration-300">
+      <Link href={href} className="flex text-center items-center h-full ">
         <span>{text}</span>
-        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black" />
       </Link>
-    </button>
+      <span className="flex -mt-2 max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black" />
+    </li>
   );
 };
 
