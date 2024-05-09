@@ -15,6 +15,7 @@
     "@next/env": "^14.2.3",
     "@vercel/postgres": "^0.8.0",
     "drizzle-orm": "^0.30.10",
+    "google-auth-library": "^9.9.0",
     "ioredis": "^5.4.1",
     "next": "14.2.3",
     "pg": "^8.11.5",

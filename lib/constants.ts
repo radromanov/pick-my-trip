@@ -24,3 +24,9 @@ export const ErrorTypes = {
   "Unprocessable Entity": 422,
   "Internal Server Error": 500,
 } as const;
+
+export const GoogleOAuthScopes = [
+  "https://www.googleapis.com/auth/userinfo.profile",
+  "https://www.googleapis.com/auth/userinfo.email",
+  "openid",
+];

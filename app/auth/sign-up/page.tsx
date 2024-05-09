@@ -1,7 +1,7 @@
 import CountrySelector from "@/app/_components/CountrySelector";
 import OAuthLink from "@/app/_components/OAuthLink";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
-import React, { Suspense } from "react";
+import React from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const SignUpPage = async () => {
