@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { FaEnvelope, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
 import OAuthLink from "@/app/_components/OAuthLink";
+import Input from "@/app/_components/ui/Input";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -10,22 +11,18 @@ const SignInPage = () => {
   return (
     <>
       <form className="flex flex-col justify-center items-center gap-2">
-        <label htmlFor="email">
-          <input
-            name="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email@example.com"
-          />
-        </label>
+        <Input
+          label="email"
+          placeholder="email@example.com"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
         <OAuthLink
-          text="Continue with Email"
+          text="Continue"
           connection_id={
             process.env.NEXT_PUBLIC_KINDE_CONNECTION_EMAIL_PASSWORDLESS!
           }
           login_hint={email}
-          icon={<FaEnvelope />}
         />
       </form>
 

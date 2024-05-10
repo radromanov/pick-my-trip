@@ -5,7 +5,7 @@ import { LoginLink } from "@kinde-oss/kinde-auth-nextjs";
 import Button from "./ui/Button";
 
 interface Props {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   text: string;
   connection_id: string;
   login_hint?: string;
@@ -13,7 +13,7 @@ interface Props {
 
 const OAuthLink = ({ icon, text, connection_id, login_hint }: Props) => {
   return (
-    <Button variant="secondary" width="full" className="font-normal">
+    <Button variant="default" width="full" height={32} className="font-medium">
       <LoginLink
         postLoginRedirectURL="/"
         className="flex items-center justify-center gap-2"
