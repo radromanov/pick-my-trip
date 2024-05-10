@@ -1,22 +1,40 @@
+"use client";
 import OAuthLink from "@/app/_components/OAuthLink";
 import Button from "@/app/_components/ui/Button";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
+import Input from "@/app/_components/ui/Input";
+import { useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
-const SignUpPage = async () => {
+const SignUpPage = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    return setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
   return (
-    <form className="flex flex-col justify-center items-center gap-2 w-[248px]">
-      <label htmlFor="firstName">
-        <input name="firstName" id="firstName" placeholder="John" />
-      </label>
+    <form className="flex flex-col justify-center items-center gap-2 w-[272px]">
+      <Input
+        label="First Name"
+        value={formData.firstName}
+        onChange={handleChange}
+      />
 
-      <label htmlFor="lastName">
-        <input name="lastName" id="lastName" placeholder="Doe" />
-      </label>
+      <Input
+        label="Last Name"
+        value={formData.lastName}
+        onChange={handleChange}
+      />
 
-      <label htmlFor="email">
-        <input name="email" id="email" placeholder="john.doe@email.com" />
-      </label>
+      <Input label="Email" value={formData.email} onChange={handleChange} />
 
       <Button variant="default" width="full">
         Continue

@@ -13,20 +13,32 @@ interface Props
   label: string;
   value: string | number | readonly string[];
   onChange: React.ChangeEventHandler<HTMLInputElement>;
-  placeholder: string;
+  placeholder?: string;
+  width?: "full" | number;
 }
 
 /**
  * @param label Either pass in 1 word or, if more than 1 word, make sure they are space delimited (e.g. "Confirm Password")
  */
-const Input = ({ label, placeholder, value, onChange, ...props }: Props) => {
+const Input = ({
+  label,
+  placeholder,
+  value,
+  onChange,
+  width = "full",
+  ...props
+}: Props) => {
   const words = label.toLowerCase().split(" ");
 
   const text = words.map((word) => capitalize(word)).join(" ");
   const inputId = generateInputId(words);
 
   return (
-    <label className="flex flex-col" htmlFor={inputId}>
+    <label
+      className="flex flex-col"
+      style={{ width: width === "full" ? "100%" : width }}
+      htmlFor={inputId}
+    >
       <span>{text}</span>
       <input
         onChange={onChange}
@@ -34,7 +46,7 @@ const Input = ({ label, placeholder, value, onChange, ...props }: Props) => {
         value={value}
         name={inputId}
         id={inputId}
-        className={`rounded-md px-2 py-1 outline outline-blue-600 outline-offset-2 hover:bg-slate-100/50 focus:bg-slate-100/50`}
+        className={`px-2 py-1 rounded-md border border-slate-300 hover:bg-slate-100 focus:bg-slate-100 transition-colors drop-shadow-md`}
         {...props}
         placeholder={placeholder}
       />

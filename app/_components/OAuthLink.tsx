@@ -9,11 +9,18 @@ interface Props {
   text: string;
   connection_id: string;
   login_hint?: string;
+  variant?: "default" | "secondary" | "warning";
 }
 
-const OAuthLink = ({ icon, text, connection_id, login_hint }: Props) => {
+const OAuthLink = ({
+  variant = "secondary",
+  icon,
+  text,
+  connection_id,
+  login_hint,
+}: Props) => {
   return (
-    <Button variant="default" width="full" height={32} className="font-medium">
+    <Button variant={variant} width="full" className="font-medium">
       <LoginLink
         postLoginRedirectURL="/"
         className="flex items-center justify-center gap-2"

@@ -17,14 +17,14 @@ const applyVariant = (variant: Props["variant"]) => {
 
   switch (variant) {
     case "secondary":
-      styles = `border border-neutral-300 drop-shadow-md hover:bg-slate-300/25`;
+      styles = `bg-white border-slate-300 hover:bg-slate-100 focus:bg-slate-100`;
       break;
 
     case "warning":
       styles = `bg-red-500 text-white`;
       break;
     default:
-      styles = `bg-black text-white hover:bg-neutral-700 drop-shadow-md outline outline-gray-300 -outline-offset-1`;
+      styles = `bg-black text-white hover:bg-neutral-700 focus:bg-neutral-700`;
       break;
   }
 
@@ -33,8 +33,8 @@ const applyVariant = (variant: Props["variant"]) => {
 
 const Button = ({
   variant,
-  width,
-  height,
+  width = "full",
+  height = "full",
   className,
   children,
   ...props
@@ -43,7 +43,7 @@ const Button = ({
 
   return (
     <button
-      className={`font font-medium transition-colors rounded-md ${style} ${
+      className={`px-2 py-1 font-medium border transition-colors rounded-md drop-shadow-md ${style} ${
         className ? className : ""
       }`}
       style={{

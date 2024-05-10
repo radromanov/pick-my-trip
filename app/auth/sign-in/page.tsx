@@ -13,11 +13,11 @@ const SignInPage = () => {
       <form className="flex flex-col justify-center items-center gap-2">
         <Input
           label="email"
-          placeholder="email@example.com"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
         <OAuthLink
+          variant="default"
           text="Continue"
           connection_id={
             process.env.NEXT_PUBLIC_KINDE_CONNECTION_EMAIL_PASSWORDLESS!
