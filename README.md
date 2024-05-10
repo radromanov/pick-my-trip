@@ -42,7 +42,9 @@ PMT will include a list of sights to see, and businesses will be able to promote
     - [x] Hosting (Vercel)
     - [x] Setup Database (Vercel Postgres)
     - [x] Setup Cache (Redis/Upstash?)
-    - [ ] Authentication (Clerk/Kinde & In-House)
+    - [ ] Authentication (Kinde & In-house)
+        - [x] Kinde
+        - [ ] In-house
     - [ ] Error management (Sentry)
     - [ ] Analytics (Posthog)
     - [ ] Location picker (using Places API?)

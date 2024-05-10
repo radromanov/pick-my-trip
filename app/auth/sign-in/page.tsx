@@ -17,6 +17,7 @@ const SignInPage = () => {
           value={email}
         />
         <OAuthLink
+          action="login"
           variant="default"
           text="Continue"
           connection_id={
@@ -30,12 +31,14 @@ const SignInPage = () => {
 
       <form className="flex flex-col w-full gap-2">
         <OAuthLink
+          action="login"
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GOOGLE!}
           icon={<FaGoogle />}
           text="Sign in with Google"
         />
 
         <OAuthLink
+          action="login"
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GITHUB!}
           icon={<FaGithub />}
           text="Sign in with Github"

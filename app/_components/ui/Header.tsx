@@ -26,7 +26,7 @@ const Header = ({ user }: Props) => {
           {user ? (
             <div className="flex items-center">
               <Image
-                className="rounded-full cursor-pointer"
+                className="rounded-full cursor-pointer border border-black/50"
                 width={36}
                 height={36}
                 src={user.picture || ""}

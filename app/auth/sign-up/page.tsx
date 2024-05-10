@@ -1,6 +1,5 @@
 "use client";
 import OAuthLink from "@/app/_components/OAuthLink";
-import Button from "@/app/_components/ui/Button";
 import DividerWithText from "@/app/_components/ui/DividerWithText";
 import Input from "@/app/_components/ui/Input";
 import { useState } from "react";
@@ -36,19 +35,26 @@ const SignUpPage = () => {
 
       <Input label="Email" value={formData.email} onChange={handleChange} />
 
-      <Button variant="default" width="full">
-        Continue
-      </Button>
+      <OAuthLink
+        variant="default"
+        action="register"
+        connection_id={
+          process.env.NEXT_PUBLIC_KINDE_CONNECTION_EMAIL_PASSWORDLESS!
+        }
+        text="Continue"
+      />
 
       <DividerWithText text="OR" />
 
       <div className="flex flex-col w-full gap-2">
         <OAuthLink
+          action="register"
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GOOGLE!}
           icon={<FaGoogle />}
           text="Sign up with Google"
         />
         <OAuthLink
+          action="register"
           connection_id={process.env.NEXT_PUBLIC_KINDE_CONNECTION_GITHUB!}
           icon={<FaGithub />}
           text="Sign up with Github"
